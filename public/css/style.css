@@ -16,6 +16,9 @@
     --border-color: #000000;
     /* Sharp Black */
 
+    /* Additional Light Mode Colors */
+    --accent-gray-dark: #666666;
+
     /* Spacing */
     --spacing-sm: 12px;
     --spacing-md: 24px;
@@ -26,6 +29,28 @@
     /* Clean, Modern */
     --font-header: 'VT323', monospace;
     /* Retro Accent */
+}
+
+/* Dark Mode Variables */
+body.dark-mode {
+    /* Dark Theme Palette - Retro Terminal Aesthetic */
+    --bg-color: #1a1a1a;
+    /* Dark Charcoal */
+    --card-bg: #2d2d2d;
+    /* Slightly Lighter for Windows */
+    --text-main: #e0e0e0;
+    /* Light Gray Text */
+    --text-muted: #a0a0a0;
+    /* Muted Gray */
+
+    /* Dark Mode Accents - Retro Terminal Colors */
+    --accent-blue: #00d4ff;
+    /* Cyan for Links */
+    --accent-purple: #bb86fc;
+    /* Purple Accent */
+    --border-color: #00ff00;
+    /* Retro Terminal Green */
+    --accent-gray-dark: #a0a0a0;
 }
 
 * {
@@ -44,6 +69,7 @@ body {
     /* CRT Scanline Effect */
     position: relative;
     min-height: 100vh;
+
 }
 
 /* CRT Overlay */
@@ -59,6 +85,12 @@ body::after {
     background-size: 100% 4px;
     pointer-events: none;
     z-index: 9999;
+}
+
+/* Dark Mode CRT Overlay */
+body.dark-mode::after {
+    background: linear-gradient(rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.03) 50%);
+    /* Subtle white scanlines for dark mode */
 }
 
 /* Typography */
@@ -197,6 +229,7 @@ a:hover {
     border-bottom: 3px solid var(--border-color);
     padding-bottom: var(--spacing-md);
     flex-wrap: wrap;
+    align-items: center;
 }
 
 .nav-link {
@@ -213,6 +246,30 @@ a:hover {
     background: transparent;
     color: var(--text-main);
     box-shadow: 3px 3px 0px var(--border-color);
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+    margin-left: auto;
+    background: var(--card-bg);
+    border: 3px solid var(--border-color);
+    color: var(--text-main);
+    font-size: 1.5rem;
+    padding: 4px 12px;
+    cursor: pointer;
+    box-shadow: 3px 3px 0px var(--border-color);
+    transition: all 0.1s;
+    font-family: var(--font-header);
+}
+
+.theme-toggle:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 5px 5px 0px var(--border-color);
+}
+
+.theme-toggle:active {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0px var(--border-color);
 }
 
 /* Timeline (About Page) */
@@ -278,4 +335,67 @@ textarea:focus {
     .container {
         padding: var(--spacing-md);
     }
+}
+
+/* Dark Mode Specific Overrides for Inline Styles */
+body.dark-mode [style*="background: white"],
+body.dark-mode [style*="background:white"] {
+    background: var(--card-bg) !important;
+    color: var(--text-main) !important;
+}
+
+body.dark-mode [style*="background: var(--text-muted)"] {
+    background: var(--accent-purple) !important;
+}
+
+body.dark-mode [style*="background: var(--text-main)"] {
+    background: var(--border-color) !important;
+    color: #000000 !important;
+    /* Black text on neon green for maximum readability */
+}
+
+body.dark-mode [style*="color: var(--accent-blue)"] {
+    color: var(--accent-blue) !important;
+}
+
+/* Dark Mode Button Fix */
+body.dark-mode .btn {
+    background: var(--card-bg);
+    color: var(--text-main);
+    border-color: var(--border-color);
+    box-shadow: 4px 4px 0px var(--border-color);
+}
+
+body.dark-mode .btn:hover {
+    background: var(--border-color);
+    color: var(--text-main);
+    box-shadow: 6px 6px 0px var(--accent-blue);
+}
+
+body.dark-mode .btn:active {
+    box-shadow: 2px 2px 0px var(--accent-blue);
+}
+
+/* Dark Mode Form Inputs */
+body.dark-mode input,
+body.dark-mode textarea {
+    background: var(--card-bg);
+    color: var(--text-main);
+    border-color: var(--border-color);
+}
+
+body.dark-mode input:focus,
+body.dark-mode textarea:focus {
+    box-shadow: 5px 5px 0px var(--accent-blue);
+}
+
+/* Dark Mode Footer */
+body.dark-mode footer {
+    color: var(--text-muted) !important;
+}
+
+/* Dark Mode Window Headers - Black text on neon green for all headers */
+body.dark-mode .window-header {
+    color: #000000 !important;
+    /* Black text on neon green background for maximum readability across all pages */
 }

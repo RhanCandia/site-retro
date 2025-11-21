@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cursor Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 40px;
+            background: #f0f0f0;
+        }
+
+        .demo-container {
+            display: flex;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .cursor-demo {
+            background: white;
+            border: 3px solid black;
+            padding: 30px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        svg {
+            border: 2px dashed #ccc;
+            background: repeating-conic-gradient(#ccc 0% 25%, white 0% 50%) 50% / 20px 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Windows 95 Style Cursors Preview</h1>
+
+    <div class="demo-container">
+        <div class="cursor-demo">
+            <h2>Default Arrow Pointer</h2>
+            <p>This is what you'll see normally</p>
+            <svg width="160" height="160" viewBox="0 0 20 20" style="width: 160px; height: 160px;">
+                <rect x="2" y="2" width="2" height="14" fill="white" stroke="black" stroke-width="0.5" />
+                <rect x="4" y="4" width="2" height="10" fill="white" stroke="black" stroke-width="0.5" />
+                <rect x="6" y="6" width="2" height="8" fill="white" stroke="black" stroke-width="0.5" />
+                <rect x="8" y="8" width="2" height="6" fill="white" stroke="black" stroke-width="0.5" />
+                <rect x="10" y="10" width="2" height="4" fill="white" stroke="black" stroke-width="0.5" />
+                <rect x="6" y="10" width="2" height="6" fill="white" stroke="black" stroke-width="0.5" />
+                <rect x="8" y="14" width="2" height="4" fill="white" stroke="black" stroke-width="0.5" />
+                <rect x="10" y="14" width="2" height="2" fill="white" stroke="black" stroke-width="0.5" />
+                <rect x="12" y="10" width="6" height="2" fill="white" stroke="black" stroke-width="0.5" />
+            </svg>
+        </div>
+
+        <div class="cursor-demo">
+            <h2>Hand Pointer (Links & Buttons)</h2>
+            <p>This appears when hovering over clickable items</p>
+            <svg width="160" height="160" viewBox="0 0 20 20" style="width: 160px; height: 160px;">
+                <rect x="9" y="2" width="2" height="6" fill="white" stroke="black" stroke-width="0.5" />
+                <rect x="11" y="4" width="2" height="4" fill="white" stroke="black" stroke-width="0.5" />
+                <rect x="7" y="8" width="2" height="4" fill="white" stroke="black" stroke-width="0.5" />
+                <rect x="9" y="8" width="2" height="8" fill="white" stroke="black" stroke-width="0.5" />
+                <rect x="11" y="8" width="2" height="8" fill="white" stroke="black" stroke-width="0.5" />
+                <rect x="13" y="8" width="2" height="6" fill="white" stroke="black" stroke-width="0.5" />
+                <rect x="15" y="10" width="2" height="4" fill="white" stroke="black" stroke-width="0.5" />
+                <rect x="7" y="12" width="2" height="4" fill="white" stroke="black" stroke-width="0.5" />
+                <rect x="5" y="14" width="2" height="2" fill="white" stroke="black" stroke-width="0.5" />
+            </svg>
+        </div>
+    </div>
+
+    <div style="background: white; border: 3px solid black; padding: 30px; max-width: 600px;">
+        <h2>Note:</h2>
+        <p>These are enlarged 10x for preview. The actual cursors on your site are 16x16 pixels (the standard Windows 95
+            size). We can make them bigger if needed!</p>
+    </div>
+</body>
+
+</html>
