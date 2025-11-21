@@ -1,0 +1,283 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=VT323&display=swap');
+
+:root {
+    /* Palette - Neo-Brutalist / Retro Modern */
+    --bg-color: #f0f0f0;
+    /* Off-white / Light Gray */
+    --card-bg: #ffffff;
+    --text-main: #1a1a1a;
+    --text-muted: #666666;
+
+    /* Accents */
+    --accent-blue: #0000EE;
+    /* Standard Link Blue */
+    --accent-purple: #8855ff;
+    /* Modern Pop */
+    --border-color: #000000;
+    /* Sharp Black */
+
+    /* Spacing */
+    --spacing-sm: 12px;
+    --spacing-md: 24px;
+    --spacing-lg: 48px;
+
+    /* Fonts */
+    --font-body: 'Inter', sans-serif;
+    /* Clean, Modern */
+    --font-header: 'VT323', monospace;
+    /* Retro Accent */
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: var(--font-body);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    /* Subtle noise texture */
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+    /* CRT Scanline Effect */
+    position: relative;
+    min-height: 100vh;
+}
+
+/* CRT Overlay */
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.05) 50%);
+    /* Very subtle on light bg */
+    background-size: 100% 4px;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4 {
+    font-family: var(--font-header);
+    margin-top: 0;
+    margin-bottom: var(--spacing-sm);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+h1 {
+    font-size: 3.5rem;
+    line-height: 1;
+}
+
+h2 {
+    font-size: 2.5rem;
+}
+
+h3 {
+    font-size: 1.8rem;
+}
+
+a {
+    color: var(--accent-blue);
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+}
+
+a:hover {
+    background-color: var(--accent-blue);
+    color: white;
+    text-decoration: none;
+}
+
+/* Layout */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: var(--spacing-lg) var(--spacing-md);
+}
+
+/* Neo-Brutalist Components */
+.window {
+    background: var(--card-bg);
+    border: 3px solid var(--border-color);
+    box-shadow: 6px 6px 0px var(--border-color);
+    /* Hard shadow */
+    margin-bottom: var(--spacing-lg);
+    transition: transform 0.2s ease;
+}
+
+.window:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 8px 8px 0px var(--border-color);
+}
+
+.window-header {
+    background: var(--border-color);
+    color: white;
+    padding: 8px 16px;
+    font-family: var(--font-header);
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.window-body {
+    padding: var(--spacing-lg);
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    background: white;
+    border: 3px solid var(--border-color);
+    color: var(--text-main);
+    padding: 12px 24px;
+    font-family: var(--font-header);
+    font-size: 1.4rem;
+    text-decoration: none;
+    box-shadow: 4px 4px 0px var(--border-color);
+    transition: all 0.1s;
+    margin-right: 16px;
+}
+
+.btn:hover {
+    background: var(--border-color);
+    color: white;
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0px var(--text-main);
+}
+
+.btn:active {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0px var(--text-main);
+}
+
+/* Marquee */
+.marquee-container {
+    background: var(--border-color);
+    color: #00FF00;
+    /* Matrix Green */
+    font-family: var(--font-header);
+    font-size: 1.5rem;
+    padding: 8px;
+    overflow: hidden;
+    white-space: nowrap;
+    border-bottom: 3px solid var(--border-color);
+    margin-bottom: var(--spacing-lg);
+}
+
+.marquee-content {
+    display: inline-block;
+    animation: marquee 20s linear infinite;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+/* Navigation */
+.nav-bar {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+    border-bottom: 3px solid var(--border-color);
+    padding-bottom: var(--spacing-md);
+    flex-wrap: wrap;
+}
+
+.nav-link {
+    font-family: var(--font-header);
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: var(--text-main);
+    padding: 4px 8px;
+    border: 2px solid transparent;
+}
+
+.nav-link:hover {
+    border: 2px solid var(--border-color);
+    background: transparent;
+    color: var(--text-main);
+    box-shadow: 3px 3px 0px var(--border-color);
+}
+
+/* Timeline (About Page) */
+.timeline-item {
+    border-left: 3px solid var(--border-color);
+    padding-left: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+    position: relative;
+}
+
+.timeline-item::before {
+    content: "";
+    position: absolute;
+    left: -10px;
+    top: 0;
+    width: 16px;
+    height: 16px;
+    background: white;
+    border: 3px solid var(--border-color);
+}
+
+/* Inputs */
+input,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 3px solid var(--border-color);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    background: #fafafa;
+    box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.1);
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+    box-shadow: 5px 5px 0px var(--accent-blue);
+}
+
+/* Utilities */
+.text-center {
+    text-align: center;
+}
+
+.grid {
+    display: grid;
+    gap: var(--spacing-lg);
+}
+
+.grid-2 {
+    grid-template-columns: 1fr 1fr;
+}
+
+@media (max-width: 768px) {
+    .grid-2 {
+        grid-template-columns: 1fr;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    .container {
+        padding: var(--spacing-md);
+    }
+}
