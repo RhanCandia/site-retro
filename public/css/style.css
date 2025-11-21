@@ -164,16 +164,14 @@ a:hover {
 
 /* Marquee */
 .marquee-container {
-    background: var(--border-color);
+    background: rgba(0, 0, 0, 0.8);
     color: #00FF00;
     /* Matrix Green */
     font-family: var(--font-header);
     font-size: 1.5rem;
-    padding: 8px;
+    padding: 12px 8px;
     overflow: hidden;
     white-space: nowrap;
-    border-bottom: 3px solid var(--border-color);
-    margin-bottom: var(--spacing-lg);
 }
 
 .marquee-content {
