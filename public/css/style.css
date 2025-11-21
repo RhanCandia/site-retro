@@ -15,6 +15,8 @@
     /* Modern Pop */
     --border-color: #000000;
     /* Sharp Black */
+    --shadow-color: #333333;
+    /* Dark Gray Shadow for depth */
 
     /* Additional Light Mode Colors */
     --accent-gray-dark: #666666;
@@ -50,6 +52,8 @@ body.dark-mode {
     /* Purple Accent */
     --border-color: #00ff00;
     /* Retro Terminal Green */
+    --shadow-color: #008800;
+    /* Darker Green Shadow for depth */
     --accent-gray-dark: #a0a0a0;
 }
 
@@ -141,15 +145,15 @@ a:hover {
 .window {
     background: var(--card-bg);
     border: 3px solid var(--border-color);
-    box-shadow: 6px 6px 0px var(--border-color);
-    /* Hard shadow */
+    box-shadow: 6px 6px 0px var(--shadow-color);
+    /* Hard shadow with separate color for depth */
     margin-bottom: var(--spacing-lg);
     transition: transform 0.2s ease;
 }
 
 .window:hover {
     transform: translate(-2px, -2px);
-    box-shadow: 8px 8px 0px var(--border-color);
+    box-shadow: 8px 8px 0px var(--shadow-color);
 }
 
 .window-header {
@@ -177,7 +181,7 @@ a:hover {
     font-family: var(--font-header);
     font-size: 1.4rem;
     text-decoration: none;
-    box-shadow: 4px 4px 0px var(--border-color);
+    box-shadow: 4px 4px 0px var(--shadow-color);
     transition: all 0.1s;
     margin-right: 16px;
 }
@@ -245,7 +249,7 @@ a:hover {
     border: 2px solid var(--border-color);
     background: transparent;
     color: var(--text-main);
-    box-shadow: 3px 3px 0px var(--border-color);
+    box-shadow: 3px 3px 0px var(--shadow-color);
 }
 
 /* Theme Toggle Button */
@@ -257,19 +261,19 @@ a:hover {
     font-size: 1.5rem;
     padding: 4px 12px;
     cursor: pointer;
-    box-shadow: 3px 3px 0px var(--border-color);
+    box-shadow: 3px 3px 0px var(--shadow-color);
     transition: all 0.1s;
     font-family: var(--font-header);
 }
 
 .theme-toggle:hover {
     transform: translate(-2px, -2px);
-    box-shadow: 5px 5px 0px var(--border-color);
+    box-shadow: 5px 5px 0px var(--shadow-color);
 }
 
 .theme-toggle:active {
     transform: translate(2px, 2px);
-    box-shadow: 1px 1px 0px var(--border-color);
+    box-shadow: 1px 1px 0px var(--shadow-color);
 }
 
 /* Timeline (About Page) */
@@ -363,7 +367,7 @@ body.dark-mode .btn {
     background: var(--card-bg);
     color: var(--text-main);
     border-color: var(--border-color);
-    box-shadow: 4px 4px 0px var(--border-color);
+    box-shadow: 4px 4px 0px var(--shadow-color);
 }
 
 body.dark-mode .btn:hover {
