@@ -3,7 +3,7 @@ import socketserver
 import webbrowser
 import os
 
-PORT = 8000
+PORT = 8001
 DIRECTORY = "."
 
 class Handler(http.server.SimpleHTTPRequestHandler):

@@ -236,7 +236,23 @@ a:hover {
     border-bottom: 3px solid var(--border-color);
     padding-bottom: var(--spacing-md);
     flex-wrap: wrap;
+    justify-content: space-between;
+    /* Space between logo/brand (if any) and nav */
     align-items: center;
+}
+
+.nav-toggle {
+    display: none;
+}
+
+.nav-links {
+    display: flex;
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+    align-items: center;
+    width: 100%;
+    /* Ensure it takes full width if needed, or auto */
+    width: auto;
 }
 
 .nav-link {
@@ -331,16 +347,139 @@ textarea:focus {
 }
 
 @media (max-width: 768px) {
+
+    /* Layout */
+    .container {
+        padding: var(--spacing-sm);
+        width: 100%;
+    }
+
     .grid-2 {
         grid-template-columns: 1fr;
     }
 
+    /* Typography */
     h1 {
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
 
-    .container {
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    h3 {
+        font-size: 1.4rem;
+    }
+
+    /* Navigation */
+    .nav-bar {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        /* Remove gap, handle with padding/margin in children */
+        margin-bottom: var(--spacing-md);
+        position: relative;
+        /* For positioning toggle if needed, though flex works */
+    }
+
+    .nav-toggle {
+        display: block;
+        background: var(--card-bg);
+        border: 2px solid var(--border-color);
+        color: var(--text-main);
+        font-family: var(--font-header);
+        font-size: 1.2rem;
+        padding: 8px 16px;
+        cursor: pointer;
+        text-align: center;
+        width: 100%;
+        margin-bottom: var(--spacing-sm);
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        gap: var(--spacing-sm);
+        width: 100%;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-link {
+        text-align: center;
+        display: block;
+        padding: 12px;
+        border: 2px solid transparent;
+        background: var(--card-bg);
+        /* Ensure background covers content behind */
+        width: 100%;
+    }
+
+    .nav-link:hover {
+        background: var(--border-color);
+        color: white;
+    }
+
+    /* Theme Toggle - Move inside nav-links or keep separate? 
+       Let's keep it separate but style it to fit. 
+       Actually, let's hide it in the main bar and maybe put it in the menu or just keep it below.
+       For now, let's keep it below the menu button if menu is closed, or at bottom of menu.
+    */
+    .theme-toggle {
+        margin-left: 0;
+        width: 100%;
+        text-align: center;
+        margin-top: var(--spacing-sm);
+        padding: 8px;
+        display: none;
+        /* Hide by default on mobile, show in menu? Or keep always visible? */
+    }
+
+    /* Let's make the theme toggle part of the collapsible menu for cleaner look, 
+       OR keep it always visible next to the menu button? 
+       Design choice: Keep it simple. Toggle button takes full width. 
+       Theme toggle can be another button below it or inside the menu.
+       Let's put it inside the menu for now to save space.
+    */
+    .nav-links.active .theme-toggle {
+        display: block;
+    }
+
+    /* Components */
+    .window {
+        margin-bottom: var(--spacing-md);
+    }
+
+    .window-header {
+        font-size: 1rem;
+        padding: 6px 10px;
+    }
+
+    .window-body {
         padding: var(--spacing-md);
+    }
+
+    /* Buttons */
+    .btn {
+        display: block;
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: var(--spacing-sm);
+        text-align: center;
+    }
+
+    /* Action Buttons Container (will add class to HTML) */
+    .action-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    /* Marquee */
+    .marquee-container {
+        font-size: 1.2rem;
+        padding: 8px 4px;
     }
 }
 

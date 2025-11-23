@@ -12,12 +12,15 @@
 
     <div class="container">
         <nav class="nav-bar">
-            <a href="index.html" class="nav-link">Home</a>
-            <a href="about.html" class="nav-link">About</a>
-            <a href="experience.html" class="nav-link">Experience</a>
-            <a href="log.html" class="nav-link"><b>Log</b></a>
-            <a href="contact.html" class="nav-link">Contact</a>
-            <button class="theme-toggle" title="Toggle Dark Mode" aria-label="Toggle Dark Mode">🌙</button>
+            <button class="nav-toggle" aria-expanded="false">[ MENU ]</button>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="experience.html" class="nav-link">Experience</a>
+                <a href="log.html" class="nav-link"><b>Log</b></a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <button class="theme-toggle" title="Toggle Dark Mode" aria-label="Toggle Dark Mode">🌙</button>
+            </div>
         </nav>
 
         <div id="page-content">
@@ -41,6 +44,7 @@
 
     <script src="public/js/router.js"></script>
     <script src="public/js/theme.js"></script>
+    <script src="public/js/nav.js"></script>
 </body>
 
 </html>
