@@ -55,6 +55,8 @@ body.dark-mode {
     --shadow-color: #008800;
     /* Darker Green Shadow for depth */
     --accent-gray-dark: #a0a0a0;
+    background-image: none;
+    /* Remove noise texture in dark mode */
 }
 
 * {
@@ -93,8 +95,9 @@ body::after {
 
 /* Dark Mode CRT Overlay */
 body.dark-mode::after {
-    background: linear-gradient(rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.03) 50%);
-    /* Subtle white scanlines for dark mode */
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%);
+    /* Dark scanlines for consistent retro feel */
+    background-size: 100% 4px;
 }
 
 /* Typography */
@@ -372,7 +375,8 @@ body.dark-mode .btn {
 
 body.dark-mode .btn:hover {
     background: var(--border-color);
-    color: var(--text-main);
+    color: #000000;
+    /* Black text on neon green for maximum readability */
     box-shadow: 6px 6px 0px var(--accent-blue);
 }
 
