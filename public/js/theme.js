@@ -9,11 +9,8 @@
 
     const THEME_KEY = 'portfolio-theme';
     const DARK_MODE_CLASS = 'dark-mode';
-    const FRUTIGER_AERO_CLASS = 'frutiger-aero';
-
     const THEME_LIGHT = 'light';
     const THEME_DARK = 'dark';
-    const THEME_FRUTIGER = 'frutiger';
 
     /**
      * Get the current theme from localStorage or system preference
@@ -37,75 +34,17 @@
      */
     function applyTheme(theme) {
         // Reset classes
-        document.body.classList.remove(DARK_MODE_CLASS, FRUTIGER_AERO_CLASS);
+        document.body.classList.remove(DARK_MODE_CLASS);
 
         if (theme === THEME_DARK) {
             document.body.classList.add(DARK_MODE_CLASS);
-        } else if (theme === THEME_FRUTIGER) {
-            document.body.classList.add(FRUTIGER_AERO_CLASS);
         }
 
         // Update all toggle buttons on the page
         updateToggleButtons(theme);
-
-        // Handle Bubbles for Frutiger Aero
-        if (theme === THEME_FRUTIGER) {
-            createBubbles();
-        } else {
-            removeBubbles();
-        }
     }
 
-    /**
-     * Create floating bubbles for Frutiger Aero theme
-     */
-    function createBubbles() {
-        // Check if container already exists
-        if (document.getElementById('bubble-container')) return;
 
-        const container = document.createElement('div');
-        container.id = 'bubble-container';
-        container.style.position = 'fixed';
-        container.style.top = '0';
-        container.style.left = '0';
-        container.style.width = '100%';
-        container.style.height = '100%';
-        container.style.pointerEvents = 'none';
-        container.style.zIndex = '-1'; // Behind content but in front of background
-        container.style.overflow = 'hidden';
-
-        const bubbleCount = 15;
-        for (let i = 0; i < bubbleCount; i++) {
-            const bubble = document.createElement('div');
-            bubble.classList.add('bubble');
-
-            // Randomize bubble properties
-            const size = Math.random() * 110 + 10; // 10px to 120px
-            const left = Math.random() * 100; // 0% to 100%
-            const duration = Math.random() * 10 + 10; // 10s to 20s
-            const delay = Math.random() * 10; // 0s to 10s
-
-            bubble.style.width = `${size}px`;
-            bubble.style.height = `${size}px`;
-            bubble.style.left = `${left}%`;
-            bubble.style.animationDuration = `${duration}s`;
-            bubble.style.animationDelay = `${delay}s`;
-
-            container.appendChild(bubble);
-        }
-
-        document.body.appendChild(container);
-    }
-
-    /**
-     * Remove bubbles
-     */
-    function removeBubbles() {
-        const container = document.getElementById('bubble-container');
-        if (container) {
-            container.remove();
-        }
-    }
 
     /**
      * Update the theme toggle button icon
@@ -121,10 +60,6 @@
                 break;
             case THEME_DARK:
                 icon = '🌙';
-                title = 'Switch to Frutiger Aero';
-                break;
-            case THEME_FRUTIGER:
-                icon = '🫧'; // Bubble for Frutiger Aero
                 title = 'Switch to Light Mode';
                 break;
             default:
@@ -148,8 +83,6 @@
 
         if (currentTheme === THEME_LIGHT) {
             newTheme = THEME_DARK;
-        } else if (currentTheme === THEME_DARK) {
-            newTheme = THEME_FRUTIGER;
         } else {
             newTheme = THEME_LIGHT;
         }
