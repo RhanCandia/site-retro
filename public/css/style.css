@@ -157,7 +157,6 @@ a:hover {
 }
 
 .window:hover {
-    transform: translate(-2px, -2px);
     box-shadow: 8px 8px 0px var(--shadow-color);
 }
 
