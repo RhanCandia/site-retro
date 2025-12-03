@@ -13,7 +13,6 @@ class Router {
             '/log.html': 'log.html',
             '/contact.html': 'contact.html'
         };
-        this.basePath = '/site-retro';
 
         this.init();
     }
@@ -39,14 +38,9 @@ class Router {
         });
 
         // Set initial state
-        let currentPath = window.location.pathname;
-        if (this.basePath && currentPath.startsWith(this.basePath)) {
-            currentPath = currentPath.substring(this.basePath.length);
-        }
-
-        const page = currentPath === '/' || currentPath === '' ? 'index.html' : currentPath.substring(1);
-        history.replaceState({ page }, '', window.location.href);
-        this.loadPage(page, false);
+        const currentPath = window.location.pathname;
+        const page = currentPath === '/' ? 'index.html' : currentPath.substring(1);
+        history.replaceState({ page }, '', currentPath);
     }
 
     isInternalLink(link) {
@@ -131,7 +125,7 @@ class Router {
                 
                 // Update browser history
                 if (addToHistory) {
-                    const newPath = this.basePath + '/' + (page === 'index.html' ? '' : page);
+                    const newPath = page === 'index.html' ? '/' : '/' + page;
                     history.pushState({ page }, '', newPath);
                 }
             } else {
