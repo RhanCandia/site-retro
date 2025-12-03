@@ -13,7 +13,6 @@ class Router {
             '/log.html': 'log.html',
             '/contact.html': 'contact.html'
         };
-        this.basePath = '/site-retro'; // Define the base path
 
         this.init();
     }
@@ -39,18 +38,9 @@ class Router {
         });
 
         // Set initial state
-        let currentPath = window.location.pathname; // e.g., "/site-retro/about.html"
-        let page = 'index.html';
-
-        if (this.basePath && currentPath.startsWith(this.basePath)) {
-            const relativePath = currentPath.substring(this.basePath.length); // e.g., "/about.html"
-            if (relativePath.length > 1) { // If it's not just "/"
-                page = relativePath.substring(1); // Remove leading "/" -> "about.html"
-            }
-        }
-        
-        // This keeps the full URL in the address bar (e.g., /site-retro/about.html)
-        history.replaceState({ page }, '', window.location.href); 
+        const currentPath = window.location.pathname;
+        const page = currentPath === '/' ? 'index.html' : currentPath.substring(1);
+        history.replaceState({ page }, '', currentPath);
         this.loadPage(page, false); // Load the initial page content
     }
 
@@ -92,8 +82,7 @@ class Router {
             }
 
             // Fetch the page content
-            const fetchUrl = this.basePath + '/' + page; // Construct full URL for fetch
-            const response = await fetch(fetchUrl);
+            const response = await fetch(page);
             
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
@@ -137,7 +126,7 @@ class Router {
                 
                 // Update browser history
                 if (addToHistory) {
-                    const newPath = this.basePath + '/' + (page === 'index.html' ? '' : page); // Correct path for history
+                    const newPath = page === 'index.html' ? '/' : '/' + page;
                     history.pushState({ page }, '', newPath);
                 }
             } else {
